@@ -1,0 +1,369 @@
+{
+  "abi": [
+    {
+      "type": "constructor",
+      "inputs": [
+        {
+          "name": "_escrow",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "addCircuit",
+      "inputs": [
+        {
+          "name": "modelId",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "circuitLabel",
+          "type": "string",
+          "internalType": "string"
+        },
+        {
+          "name": "verifierAddr",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "vkHashFile",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "vkHashBytecode",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "bundleDigest",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "sameWeightsSibling",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "agentIdOf",
+      "inputs": [
+        {
+          "name": "vkHashFile",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "stateMutability": "pure"
+    },
+    {
+      "type": "function",
+      "name": "anchors",
+      "inputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "scale",
+          "type": "uint8",
+          "internalType": "uint8"
+        },
+        {
+          "name": "artifactsURI",
+          "type": "string",
+          "internalType": "string"
+        },
+        {
+          "name": "predicateVersion",
+          "type": "string",
+          "internalType": "string"
+        },
+        {
+          "name": "exists",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "circuitCount",
+      "inputs": [
+        {
+          "name": "modelId",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "escrow",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "address",
+          "internalType": "contract IEscrowV2"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "getCircuitByVerifier",
+      "inputs": [
+        {
+          "name": "modelId",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "verifierAddr",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rec",
+          "type": "tuple",
+          "internalType": "struct PassportAnchorV2.CircuitRecord",
+          "components": [
+            {
+              "name": "circuitLabel",
+              "type": "string",
+              "internalType": "string"
+            },
+            {
+              "name": "verifierAddr",
+              "type": "address",
+              "internalType": "address"
+            },
+            {
+              "name": "vkHashFile",
+              "type": "bytes32",
+              "internalType": "bytes32"
+            },
+            {
+              "name": "vkHashBytecode",
+              "type": "bytes32",
+              "internalType": "bytes32"
+            },
+            {
+              "name": "bundleDigest",
+              "type": "bytes32",
+              "internalType": "bytes32"
+            },
+            {
+              "name": "sameWeightsSibling",
+              "type": "bytes32",
+              "internalType": "bytes32"
+            }
+          ]
+        },
+        {
+          "name": "found",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "getCircuits",
+      "inputs": [
+        {
+          "name": "modelId",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "tuple[]",
+          "internalType": "struct PassportAnchorV2.CircuitRecord[]",
+          "components": [
+            {
+              "name": "circuitLabel",
+              "type": "string",
+              "internalType": "string"
+            },
+            {
+              "name": "verifierAddr",
+              "type": "address",
+              "internalType": "address"
+            },
+            {
+              "name": "vkHashFile",
+              "type": "bytes32",
+              "internalType": "bytes32"
+            },
+            {
+              "name": "vkHashBytecode",
+              "type": "bytes32",
+              "internalType": "bytes32"
+            },
+            {
+              "name": "bundleDigest",
+              "type": "bytes32",
+              "internalType": "bytes32"
+            },
+            {
+              "name": "sameWeightsSibling",
+              "type": "bytes32",
+              "internalType": "bytes32"
+            }
+          ]
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "setAnchor",
+      "inputs": [
+        {
+          "name": "modelId",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "scale",
+          "type": "uint8",
+          "internalType": "uint8"
+        },
+        {
+          "name": "artifactsURI",
+          "type": "string",
+          "internalType": "string"
+        },
+        {
+          "name": "predicateVersion",
+          "type": "string",
+          "internalType": "string"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "event",
+      "name": "AnchorSet",
+      "inputs": [
+        {
+          "name": "modelId",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "scale",
+          "type": "uint8",
+          "indexed": false,
+          "internalType": "uint8"
+        },
+        {
+          "name": "artifactsURI",
+          "type": "string",
+          "indexed": false,
+          "internalType": "string"
+        },
+        {
+          "name": "predicateVersion",
+          "type": "string",
+          "indexed": false,
+          "internalType": "string"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "CircuitSet",
+      "inputs": [
+        {
+          "name": "modelId",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "circuitLabel",
+          "type": "string",
+          "indexed": false,
+          "internalType": "string"
+        },
+        {
+          "name": "verifierAddr",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        },
+        {
+          "name": "vkHashFile",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "vkHashBytecode",
+          "type": "bytes32",
+          "indexed": false,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "bundleDigest",
+          "type": "bytes32",
+          "indexed": false,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "sameWeightsSibling",
+          "type": "bytes32",
+          "indexed": false,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "isNewEntry",
+          "type": "bool",
+          "indexed": false,
+          "internalType": "bool"
+        }
+      ],
+      "anonymous": false
+    }
+  ]
+}

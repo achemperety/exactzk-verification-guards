@@ -1,0 +1,9 @@
+{
+  "label": "reference deployment (Base Sepolia, chainId 84532)",
+  "note": "One real deployment on Base Sepolia, chainId 84532. Every address and digest below is publicly checkable against live chain state.",
+  "filerAddress": "0x944E3Cbf38e1D4D1444Ac44332f82280D35706f8",
+  "registryV2": "0x5421E241668AA5e2Bc6Da2c5642Fa9bFc8A5d996",
+  "escrow": "0x27e4DfA9e435a463A947e4eD8f74d8aB86F2F4CF",
+  "anchorV2": "0xD0B577776A239E3eE3b39373f2380E366c3a987f",
+  "modelId": "0x06ef1c26ba4f218306433064fb65a8d0fbaffab707fb224505f0e256e23f2e8d"
+}

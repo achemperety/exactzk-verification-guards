@@ -1,0 +1,40 @@
+Real discovered sets (live, read-only):
+  stackA: 7 resolved hash(es)
+  stackB: 7 resolved hash(es)
+
+--- Scenario: 1. current state (real chain data) ---
+  result: PASS  [OK]
+  note: 001 (batchK8/pp-repro-v2) present on stackA — expected
+  note: 002 (batchK8/pp-repro-v2) present on stackA — expected
+  note: 003 (batchK8/pp-repro-v2) present on stackA — expected
+  note: 004 (batchK8/pp-bytecode-v1) present on stackA — expected
+  note: 005 (solo/pp-repro-v2) present on stackA — expected
+  note: 006a (solo/pp-repro-docker-v1) present on stackA — expected
+  note: 006b (batchK8/pp-repro-docker-v1) present on stackA — expected
+  note: 001 (batchK8/pp-repro-v2) present on stackB — expected
+  note: 002 (batchK8/pp-repro-v2) present on stackB — expected
+  note: 003 (batchK8/pp-repro-v2) present on stackB — expected
+  note: 004 (batchK8/pp-bytecode-v1) present on stackB — expected
+  note: 005 (solo/pp-repro-v2) present on stackB — expected
+  note: 006a (solo/pp-repro-docker-v1) present on stackB — expected
+  note: 006b (batchK8/pp-repro-docker-v1) present on stackB — expected
+
+--- Scenario: 2. present on one stack, missing on the other (expectation says both; using 001) ---
+  finding: attestation 001 (batchK8/pp-repro-v2) expected on stackB per catalog (dated 2026-09-10) but MISSING there
+  result: FAIL  [OK — names attestation 001 and stack 'stackB']
+
+--- Scenario: 3. unexpected filing, no catalog entry anywhere ---
+  finding: unrecognized attestation discovered on stackA: requestHash=0xabababababababababababababababababababababababababababababababab — matches no EXPECTED_ATTESTATIONS entry for either circuit/tag/attester combination on this stack; add a dated catalog entry (or investigate as unauthorized) before this can pass
+  result: FAIL  [OK — names the unrecognized requestHash and stack 'stackA']
+
+--- Scenario: 4a. asymmetric entry (SYNTH-A), absent everywhere (its natural, unperturbed state) ---
+  finding: attestation SYNTH-A (solo/pp-repro-v2) expected on stackA per catalog (dated SYNTHETIC — not a real filing, added to test the asymmetric-expectation mechanism) but MISSING there
+  result: FAIL  [OK — MISSING on stackA (expected there); silent on stackB (not expected there)]
+
+--- Scenario: 4b. asymmetric entry (SYNTH-A), simulated as filed on stackA ---
+  note: SYNTH-A (solo/pp-repro-v2) present on stackA — EXPECTED (declared asymmetry: filed only on ['stackA'], dated SYNTHETIC — not a real filing, added to test the asymmetric-expectation mechanism)
+  result: PASS  [OK — stackA presence is a note, not a finding; stackB stays silent]
+
+============================================================
+ALL 5 SCENARIOS BEHAVED AS EXPECTED.
+selftest exit: 0

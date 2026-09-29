@@ -1,0 +1,1354 @@
+{
+  "abi": [
+    {
+      "type": "constructor",
+      "inputs": [
+        {
+          "name": "_registry",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "CHALLENGE_WINDOW",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint64",
+          "internalType": "uint64"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "CHANNEL_DOMAIN",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "DOMAIN",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "DOMAIN_SEPARATOR",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "HOLD_MARGIN",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint64",
+          "internalType": "uint64"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "MIN_PROVE_WINDOW",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint64",
+          "internalType": "uint64"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "NOTICE_MARGIN",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint64",
+          "internalType": "uint64"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "VOUCHER_TYPEHASH",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "challengeClose",
+      "inputs": [
+        {
+          "name": "channelId",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "f",
+          "type": "tuple",
+          "internalType": "struct ZkInferenceEscrowV2.Frame",
+          "components": [
+            {
+              "name": "channelId",
+              "type": "bytes32",
+              "internalType": "bytes32"
+            },
+            {
+              "name": "seq",
+              "type": "uint64",
+              "internalType": "uint64"
+            },
+            {
+              "name": "inputCommitment",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "amount",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "cumAmount",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "proveBy",
+              "type": "uint64",
+              "internalType": "uint64"
+            },
+            {
+              "name": "v",
+              "type": "uint8",
+              "internalType": "uint8"
+            },
+            {
+              "name": "r",
+              "type": "bytes32",
+              "internalType": "bytes32"
+            },
+            {
+              "name": "s",
+              "type": "bytes32",
+              "internalType": "bytes32"
+            }
+          ]
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "channelIdOf",
+      "inputs": [
+        {
+          "name": "p",
+          "type": "tuple",
+          "internalType": "struct ZkInferenceEscrowV2.OpenChannelParams",
+          "components": [
+            {
+              "name": "payer",
+              "type": "address",
+              "internalType": "address"
+            },
+            {
+              "name": "payTo",
+              "type": "address",
+              "internalType": "address"
+            },
+            {
+              "name": "asset",
+              "type": "address",
+              "internalType": "address"
+            },
+            {
+              "name": "modelId",
+              "type": "bytes32",
+              "internalType": "bytes32"
+            },
+            {
+              "name": "deposit",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "salt",
+              "type": "bytes32",
+              "internalType": "bytes32"
+            },
+            {
+              "name": "proveWindowSec",
+              "type": "uint64",
+              "internalType": "uint64"
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "channels",
+      "inputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "payer",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "payTo",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "asset",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "modelId",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "balance",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "seq",
+          "type": "uint64",
+          "internalType": "uint64"
+        },
+        {
+          "name": "state",
+          "type": "uint8",
+          "internalType": "enum ZkInferenceEscrowV2.ChannelState"
+        },
+        {
+          "name": "closingAt",
+          "type": "uint64",
+          "internalType": "uint64"
+        },
+        {
+          "name": "proveWindowSec",
+          "type": "uint64",
+          "internalType": "uint64"
+        },
+        {
+          "name": "accountedCum",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "heldAmount",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "holdExpiry",
+          "type": "uint64",
+          "internalType": "uint64"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "escrows",
+      "inputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "payer",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "payTo",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "verifier",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "agentId",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "asset",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "amount",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "inputCommitment",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "numOutputs",
+          "type": "uint16",
+          "internalType": "uint16"
+        },
+        {
+          "name": "proveBy",
+          "type": "uint64",
+          "internalType": "uint64"
+        },
+        {
+          "name": "state",
+          "type": "uint8",
+          "internalType": "enum ZkInferenceEscrowV2.State"
+        },
+        {
+          "name": "validationRequested",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "finalizeClose",
+      "inputs": [
+        {
+          "name": "channelId",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "models",
+      "inputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "vkSolo",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "vkBatch",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "numOutputs",
+          "type": "uint16",
+          "internalType": "uint16"
+        },
+        {
+          "name": "hDummy",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "registered",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "open",
+      "inputs": [
+        {
+          "name": "p",
+          "type": "tuple",
+          "internalType": "struct ZkInferenceEscrowV2.OpenParams",
+          "components": [
+            {
+              "name": "payer",
+              "type": "address",
+              "internalType": "address"
+            },
+            {
+              "name": "payTo",
+              "type": "address",
+              "internalType": "address"
+            },
+            {
+              "name": "verifier",
+              "type": "address",
+              "internalType": "address"
+            },
+            {
+              "name": "agentId",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "asset",
+              "type": "address",
+              "internalType": "address"
+            },
+            {
+              "name": "amount",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "inputCommitment",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "numOutputs",
+              "type": "uint16",
+              "internalType": "uint16"
+            },
+            {
+              "name": "proveBy",
+              "type": "uint64",
+              "internalType": "uint64"
+            },
+            {
+              "name": "salt",
+              "type": "bytes32",
+              "internalType": "bytes32"
+            }
+          ]
+        },
+        {
+          "name": "validBefore",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "v",
+          "type": "uint8",
+          "internalType": "uint8"
+        },
+        {
+          "name": "r",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "s",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "requestId",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "openChannel",
+      "inputs": [
+        {
+          "name": "p",
+          "type": "tuple",
+          "internalType": "struct ZkInferenceEscrowV2.OpenChannelParams",
+          "components": [
+            {
+              "name": "payer",
+              "type": "address",
+              "internalType": "address"
+            },
+            {
+              "name": "payTo",
+              "type": "address",
+              "internalType": "address"
+            },
+            {
+              "name": "asset",
+              "type": "address",
+              "internalType": "address"
+            },
+            {
+              "name": "modelId",
+              "type": "bytes32",
+              "internalType": "bytes32"
+            },
+            {
+              "name": "deposit",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "salt",
+              "type": "bytes32",
+              "internalType": "bytes32"
+            },
+            {
+              "name": "proveWindowSec",
+              "type": "uint64",
+              "internalType": "uint64"
+            }
+          ]
+        },
+        {
+          "name": "validBefore",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "v",
+          "type": "uint8",
+          "internalType": "uint8"
+        },
+        {
+          "name": "r",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "s",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "channelId",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "owner",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "refund",
+      "inputs": [
+        {
+          "name": "requestId",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "registerModel",
+      "inputs": [
+        {
+          "name": "modelId",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "vkSolo",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "vkBatch",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "numOutputs",
+          "type": "uint16",
+          "internalType": "uint16"
+        },
+        {
+          "name": "hDummy",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "registry",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "address",
+          "internalType": "contract IValidationRegistry"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "requestClose",
+      "inputs": [
+        {
+          "name": "channelId",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "requestIdOf",
+      "inputs": [
+        {
+          "name": "p",
+          "type": "tuple",
+          "internalType": "struct ZkInferenceEscrowV2.OpenParams",
+          "components": [
+            {
+              "name": "payer",
+              "type": "address",
+              "internalType": "address"
+            },
+            {
+              "name": "payTo",
+              "type": "address",
+              "internalType": "address"
+            },
+            {
+              "name": "verifier",
+              "type": "address",
+              "internalType": "address"
+            },
+            {
+              "name": "agentId",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "asset",
+              "type": "address",
+              "internalType": "address"
+            },
+            {
+              "name": "amount",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "inputCommitment",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "numOutputs",
+              "type": "uint16",
+              "internalType": "uint16"
+            },
+            {
+              "name": "proveBy",
+              "type": "uint64",
+              "internalType": "uint64"
+            },
+            {
+              "name": "salt",
+              "type": "bytes32",
+              "internalType": "bytes32"
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "settle",
+      "inputs": [
+        {
+          "name": "requestId",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "proof",
+          "type": "bytes",
+          "internalType": "bytes"
+        },
+        {
+          "name": "instances",
+          "type": "uint256[]",
+          "internalType": "uint256[]"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "settleChannelBatch",
+      "inputs": [
+        {
+          "name": "modelId",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "frames",
+          "type": "tuple[]",
+          "internalType": "struct ZkInferenceEscrowV2.Frame[]",
+          "components": [
+            {
+              "name": "channelId",
+              "type": "bytes32",
+              "internalType": "bytes32"
+            },
+            {
+              "name": "seq",
+              "type": "uint64",
+              "internalType": "uint64"
+            },
+            {
+              "name": "inputCommitment",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "amount",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "cumAmount",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "proveBy",
+              "type": "uint64",
+              "internalType": "uint64"
+            },
+            {
+              "name": "v",
+              "type": "uint8",
+              "internalType": "uint8"
+            },
+            {
+              "name": "r",
+              "type": "bytes32",
+              "internalType": "bytes32"
+            },
+            {
+              "name": "s",
+              "type": "bytes32",
+              "internalType": "bytes32"
+            }
+          ]
+        },
+        {
+          "name": "proof",
+          "type": "bytes",
+          "internalType": "bytes"
+        },
+        {
+          "name": "instances",
+          "type": "uint256[]",
+          "internalType": "uint256[]"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "settleSolo",
+      "inputs": [
+        {
+          "name": "f",
+          "type": "tuple",
+          "internalType": "struct ZkInferenceEscrowV2.Frame",
+          "components": [
+            {
+              "name": "channelId",
+              "type": "bytes32",
+              "internalType": "bytes32"
+            },
+            {
+              "name": "seq",
+              "type": "uint64",
+              "internalType": "uint64"
+            },
+            {
+              "name": "inputCommitment",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "amount",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "cumAmount",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "proveBy",
+              "type": "uint64",
+              "internalType": "uint64"
+            },
+            {
+              "name": "v",
+              "type": "uint8",
+              "internalType": "uint8"
+            },
+            {
+              "name": "r",
+              "type": "bytes32",
+              "internalType": "bytes32"
+            },
+            {
+              "name": "s",
+              "type": "bytes32",
+              "internalType": "bytes32"
+            }
+          ]
+        },
+        {
+          "name": "modelId",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "proof",
+          "type": "bytes",
+          "internalType": "bytes"
+        },
+        {
+          "name": "instances",
+          "type": "uint256[]",
+          "internalType": "uint256[]"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "sweepExpiredHold",
+      "inputs": [
+        {
+          "name": "channelId",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "waiveSolo",
+      "inputs": [
+        {
+          "name": "f",
+          "type": "tuple",
+          "internalType": "struct ZkInferenceEscrowV2.Frame",
+          "components": [
+            {
+              "name": "channelId",
+              "type": "bytes32",
+              "internalType": "bytes32"
+            },
+            {
+              "name": "seq",
+              "type": "uint64",
+              "internalType": "uint64"
+            },
+            {
+              "name": "inputCommitment",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "amount",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "cumAmount",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "proveBy",
+              "type": "uint64",
+              "internalType": "uint64"
+            },
+            {
+              "name": "v",
+              "type": "uint8",
+              "internalType": "uint8"
+            },
+            {
+              "name": "r",
+              "type": "bytes32",
+              "internalType": "bytes32"
+            },
+            {
+              "name": "s",
+              "type": "bytes32",
+              "internalType": "bytes32"
+            }
+          ]
+        },
+        {
+          "name": "modelId",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "event",
+      "name": "BatchSettled",
+      "inputs": [
+        {
+          "name": "modelId",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "payTo",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        },
+        {
+          "name": "totalPayment",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
+        {
+          "name": "frameCount",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "ChannelChallenged",
+      "inputs": [
+        {
+          "name": "channelId",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "heldAmount",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
+        {
+          "name": "holdExpiry",
+          "type": "uint64",
+          "indexed": false,
+          "internalType": "uint64"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "ChannelCloseRequested",
+      "inputs": [
+        {
+          "name": "channelId",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "closingAt",
+          "type": "uint64",
+          "indexed": false,
+          "internalType": "uint64"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "ChannelClosed",
+      "inputs": [
+        {
+          "name": "channelId",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "refunded",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "ChannelOpened",
+      "inputs": [
+        {
+          "name": "channelId",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "payer",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        },
+        {
+          "name": "payTo",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        },
+        {
+          "name": "deposit",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "DummyLane",
+      "inputs": [
+        {
+          "name": "lane",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "FrameSettled",
+      "inputs": [
+        {
+          "name": "channelId",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "seq",
+          "type": "uint64",
+          "indexed": false,
+          "internalType": "uint64"
+        },
+        {
+          "name": "lane",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
+        {
+          "name": "outputs",
+          "type": "uint256[]",
+          "indexed": false,
+          "internalType": "uint256[]"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "FrameSkipped",
+      "inputs": [
+        {
+          "name": "lane",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
+        {
+          "name": "reason",
+          "type": "string",
+          "indexed": false,
+          "internalType": "string"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "FrameWaived",
+      "inputs": [
+        {
+          "name": "channelId",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "seq",
+          "type": "uint64",
+          "indexed": false,
+          "internalType": "uint64"
+        },
+        {
+          "name": "amount",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "HoldSwept",
+      "inputs": [
+        {
+          "name": "channelId",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "amount",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "ModelRegistered",
+      "inputs": [
+        {
+          "name": "modelId",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "vkSolo",
+          "type": "address",
+          "indexed": false,
+          "internalType": "address"
+        },
+        {
+          "name": "vkBatch",
+          "type": "address",
+          "indexed": false,
+          "internalType": "address"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "Opened",
+      "inputs": [
+        {
+          "name": "requestId",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "payer",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        },
+        {
+          "name": "payTo",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        },
+        {
+          "name": "amount",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "Refunded",
+      "inputs": [
+        {
+          "name": "requestId",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "bytes32"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "Settled",
+      "inputs": [
+        {
+          "name": "requestId",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "outputs",
+          "type": "uint256[]",
+          "indexed": false,
+          "internalType": "uint256[]"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "SoloSettled",
+      "inputs": [
+        {
+          "name": "channelId",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "seq",
+          "type": "uint64",
+          "indexed": false,
+          "internalType": "uint64"
+        },
+        {
+          "name": "outputs",
+          "type": "uint256[]",
+          "indexed": false,
+          "internalType": "uint256[]"
+        }
+      ],
+      "anonymous": false
+    }
+  ]
+}

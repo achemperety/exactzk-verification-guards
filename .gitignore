@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.DS_Store
+*.env
+config.local.json
+config*.json
+!config.example.json
+!examples/config.altered-modelid.json

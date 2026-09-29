@@ -1,0 +1,40 @@
+Comparing stackA (reference deployment (Base Sepolia, chainId 84532)) vs stackB (reference deployment (Base Sepolia) — DELIBERATELY ALTERED for the README's failing-run demo) on chainId 84532
+
+[1] Live bytecode hash, both circuits, both stacks...
+  solo: stackA=f60aad67ed7bf1b55c...  stackB=c5d2460186f7233c92...  match=False
+  batch: stackA=d0cab4041caaf77ea9...  stackB=c5d2460186f7233c92...  match=False
+
+[2] numOutputs / hDummy (escrow.models)...
+  numOutputs: stackA=10  stackB=0  match=False
+  hDummy: stackA=18011215629618843187546360138924333852267046068989450163396537537950511394632  stackB=0  match=False
+
+[3] Per-circuit vkHashFile / bundleDigest (PassportAnchorV2.getCircuits)...
+
+[4] Attestations, both circuits, against the REAL_ATTESTATIONS catalog...
+    (excludes the catalog's one "synthetic": True demo entry — see EXPECTED_ATTESTATIONS)
+  stackA: 7 resolved requestHash(es) discovered via getValidatorRequests(0x944E3Cbf...)
+  stackB: 7 resolved requestHash(es) discovered via getValidatorRequests(0x944E3Cbf...)
+  001 (batchK8/pp-repro-v2) present on stackA — expected
+  002 (batchK8/pp-repro-v2) present on stackA — expected
+  003 (batchK8/pp-repro-v2) present on stackA — expected
+  004 (batchK8/pp-bytecode-v1) present on stackA — expected
+  005 (solo/pp-repro-v2) present on stackA — expected
+  006a (solo/pp-repro-docker-v1) present on stackA — expected
+  006b (batchK8/pp-repro-docker-v1) present on stackA — expected
+
+============================================================
+DRIFT DETECTED (13 finding(s)):
+  - solo verifier bytecode diverged: stackA=f60aad67ed7bf1b55cc6cb097b1997036617c161fbaa7f0fd80661c3bfc7b17c stackB=c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470
+  - batch verifier bytecode diverged: stackA=d0cab4041caaf77ea95fe45a29d14950be503ce26eb982af11026634112d8c67 stackB=c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470
+  - numOutputs diverged: stackA=10 stackB=0
+  - hDummy diverged: stackA=18011215629618843187546360138924333852267046068989450163396537537950511394632 stackB=0
+  - circuit 'solo' missing on one stack: stackA_has=True stackB_has=False
+  - circuit 'batchK8' missing on one stack: stackA_has=True stackB_has=False
+  - unrecognized attestation discovered on stackB: requestHash=0x13438e920fb01c027d03124ccfeba66d03791d5222543a989b1d730db68e1e0b — matches no EXPECTED_ATTESTATIONS entry for either circuit/tag/attester combination on this stack; add a dated catalog entry (or investigate as unauthorized) before this can pass
+  - unrecognized attestation discovered on stackB: requestHash=0x4d87885096b12fb4f3de5fa0a8b5d672509c2c5b23022cf34a2b08bd95ce3feb — matches no EXPECTED_ATTESTATIONS entry for either circuit/tag/attester combination on this stack; add a dated catalog entry (or investigate as unauthorized) before this can pass
+  - unrecognized attestation discovered on stackB: requestHash=0x68d1df98131f830a1c7da8adf2e650cd6f9f4ff7a97a617ba0404ae5aab50741 — matches no EXPECTED_ATTESTATIONS entry for either circuit/tag/attester combination on this stack; add a dated catalog entry (or investigate as unauthorized) before this can pass
+  - unrecognized attestation discovered on stackB: requestHash=0xa3dc42ae06fbfcce79568a7c7cc77e41b61bc7a9edbfda11c8cc7bd718383c44 — matches no EXPECTED_ATTESTATIONS entry for either circuit/tag/attester combination on this stack; add a dated catalog entry (or investigate as unauthorized) before this can pass
+  - unrecognized attestation discovered on stackB: requestHash=0xb08400452442b732ee32faed555dfe266bd88bba0027d0b35bb687fab737c931 — matches no EXPECTED_ATTESTATIONS entry for either circuit/tag/attester combination on this stack; add a dated catalog entry (or investigate as unauthorized) before this can pass
+  - unrecognized attestation discovered on stackB: requestHash=0xb2522032623b7069eb893b81f1c9746f4a46ca0986a9758422306f4bf7ca1a31 — matches no EXPECTED_ATTESTATIONS entry for either circuit/tag/attester combination on this stack; add a dated catalog entry (or investigate as unauthorized) before this can pass
+  - unrecognized attestation discovered on stackB: requestHash=0xc2ca8b33ff84c4200f62275925d5e09587e20e1c076d4a8bbddd8f32b968be22 — matches no EXPECTED_ATTESTATIONS entry for either circuit/tag/attester combination on this stack; add a dated catalog entry (or investigate as unauthorized) before this can pass
+fail exit: 1

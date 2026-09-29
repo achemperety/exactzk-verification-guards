@@ -1,0 +1,38 @@
+Comparing stackA (reference deployment (Base Sepolia, chainId 84532)) vs stackB (reference deployment (Base Sepolia, chainId 84532)) on chainId 84532
+
+[1] Live bytecode hash, both circuits, both stacks...
+  solo: stackA=f60aad67ed7bf1b55c...  stackB=f60aad67ed7bf1b55c...  match=True
+  batch: stackA=d0cab4041caaf77ea9...  stackB=d0cab4041caaf77ea9...  match=True
+
+[2] numOutputs / hDummy (escrow.models)...
+  numOutputs: stackA=10  stackB=10  match=True
+  hDummy: stackA=18011215629618843187546360138924333852267046068989450163396537537950511394632  stackB=18011215629618843187546360138924333852267046068989450163396537537950511394632  match=True
+
+[3] Per-circuit vkHashFile / bundleDigest (PassportAnchorV2.getCircuits)...
+  solo.vkHashFile: match=True
+  solo.bundleDigest: match=True
+  batchK8.vkHashFile: match=True
+  batchK8.bundleDigest: match=True
+
+[4] Attestations, both circuits, against the REAL_ATTESTATIONS catalog...
+    (excludes the catalog's one "synthetic": True demo entry — see EXPECTED_ATTESTATIONS)
+  stackA: 7 resolved requestHash(es) discovered via getValidatorRequests(0x944E3Cbf...)
+  stackB: 7 resolved requestHash(es) discovered via getValidatorRequests(0x944E3Cbf...)
+  001 (batchK8/pp-repro-v2) present on stackA — expected
+  002 (batchK8/pp-repro-v2) present on stackA — expected
+  003 (batchK8/pp-repro-v2) present on stackA — expected
+  004 (batchK8/pp-bytecode-v1) present on stackA — expected
+  005 (solo/pp-repro-v2) present on stackA — expected
+  006a (solo/pp-repro-docker-v1) present on stackA — expected
+  006b (batchK8/pp-repro-docker-v1) present on stackA — expected
+  001 (batchK8/pp-repro-v2) present on stackB — expected
+  002 (batchK8/pp-repro-v2) present on stackB — expected
+  003 (batchK8/pp-repro-v2) present on stackB — expected
+  004 (batchK8/pp-bytecode-v1) present on stackB — expected
+  005 (solo/pp-repro-v2) present on stackB — expected
+  006a (solo/pp-repro-docker-v1) present on stackB — expected
+  006b (batchK8/pp-repro-docker-v1) present on stackB — expected
+
+============================================================
+NO DRIFT — both stacks agree on every checked invariant.
+pass exit: 0
