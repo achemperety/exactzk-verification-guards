@@ -3,8 +3,11 @@
 Three small, standalone Python scripts for checking that a zkML-gated escrow
 deployment's on-chain artifacts are internally consistent, and that two
 independent deployments of the same system haven't silently drifted apart.
-Each one exists because a specific, real failure mode was found in
-production and needed a repeatable check, not a one-off manual comparison.
+Each one targets a specific failure mode and is meant to be a repeatable
+check, not a one-off manual comparison. The verifier-staleness defect
+behind the first script actually occurred, in a live testnet deployment
+(Base Sepolia); the reference deployment here is a testnet, not a
+production system.
 
 All three are read-only. None of them needs a private key against any real
 chain — the one exception (a well-known, publicly documented local test
@@ -57,7 +60,7 @@ examples/
 
 ### `verifier_freshness_guard.py`
 
-**The defect it exists for:** an EZKL-generated `Halo2Verifier.sol` bakes a verification key's curve-point constants into literal bytecode at generation time. If `vk.key`/`settings.json`/`srs.bin` are ever regenerated without also regenerating the `.sol`, the stale `.sol` keeps silently accepting proofs "successfully" in local testing — an in-process verify call and a test suite with its own separately-regenerated fixture can both keep passing — while a real on-chain `verifyProof()` call against the *actual* stale bytecode reverts. This happened in production: a deployed verifier turned out to have been built from an earlier VK state than the vk.key it was supposed to match, because one deploy path regenerated the `.sol` before deploying and another silently reused whatever was already on disk. Nothing forced the second path to check first.
+**The defect it exists for:** an EZKL-generated `Halo2Verifier.sol` bakes a verification key's curve-point constants into literal bytecode at generation time. If `vk.key`/`settings.json`/`srs.bin` are ever regenerated without also regenerating the `.sol`, the stale `.sol` keeps silently accepting proofs "successfully" in local testing — an in-process verify call and a test suite with its own separately-regenerated fixture can both keep passing — while a real on-chain `verifyProof()` call against the *actual* stale bytecode reverts. This happened in a live testnet deployment (Base Sepolia): a deployed verifier turned out to have been built from an earlier VK state than the vk.key it was supposed to match, because one deploy path regenerated the `.sol` before deploying and another silently reused whatever was already on disk. Nothing forced the second path to check first.
 
 **What it does:** regenerates the verifier from the *current* `vk.key`/`settings.json`/`srs.bin` on a throwaway local Anvil chain it starts and tears down itself, deploys both the freshly-regenerated copy and the on-disk file there, and compares their metadata-stripped runtime bytecode hashes. Metadata must be stripped first because `solc`'s default metadata mode encodes the compile-time filesystem path, which differs across machines even for byte-identical contracts.
 
